@@ -36,14 +36,12 @@ public class P02_ScreenShot extends TestBase {
 
         //Tekrar amazon sayfasına donup iphone aratalım
         driver.switchTo().window(amazonSayfasi);
-        driver.findElement(By.xpath(" //*[@id='twotabsearchtextbox']")).sendKeys("iphone", Keys.ENTER);
+        driver.findElement(By.xpath("//*[@id='twotabsearchtextbox']")).sendKeys("iphone", Keys.ENTER);
 
 
         //arama sonucunun resmını alalım
         WebElement sonuc = driver.findElement(By.xpath(" //*[@class='a-section a-spacing-small a-spacing-top-small']"));
         FileUtils.copyFile(sonuc.getScreenshotAs(OutputType.FILE),new File("target/WebElementScreenShot/WEScreenShot"+tarih+".jpeg"));
-
-
 
 
         //sonuc elementını locate edıp webelemente assıgn edın

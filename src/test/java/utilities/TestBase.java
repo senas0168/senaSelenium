@@ -32,6 +32,14 @@ public abstract class TestBase {
 
     //driver objesini olustur. Driver ya public ya da protected olmalı. Sebebi child classlarda gorulebilir olması
     protected static WebDriver driver;
+    /*
+      1) <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports --> pom.xml'e yuklemek
+      2)Eger extentReport almak istersek ilk yapmamız gereken ExtentReport class'ından bir obje olusturmak.
+      3)HTML formatında duzenlenecegı ıcın ExtentHtmlReporter class'ından obje olusturmak.
+       */
+    protected ExtentReports extentReports;//Raporlamayı baslatırız
+    protected ExtentHtmlReporter extentHtmlReporter;//Raporumu html formatında duzenler
+    protected ExtentTest extentTest;//Test aşamalarına extentTest objesi ile bilgi eklerız
 
     //setUp
     @Before
@@ -62,6 +70,7 @@ public abstract class TestBase {
 
         //   waitFor(5);
         // driver.quit();
+        extentReports.flush();
     }
 
     //MULTİPLE WİNDOW
@@ -303,15 +312,6 @@ public abstract class TestBase {
 
     }
 
-
-    /*
-    1) <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports --> pom.xml'e yuklemek
-    2)Eger extentReport almak istersek ilk yapmamız gereken ExtentReport class'ından bir obje olusturmak.
-    3)HTML formatında duzenlenecegı ıcın ExtentHtmlReporter class'ından obje olusturmak.
-     */
-    protected ExtentReports extentReports;//Raporlamayı baslatırız
-    protected ExtentHtmlReporter extentHtmlReporter;//Raporumu html formatında duzenler
-    protected ExtentTest extentTest;//Test aşamalarına extentTest objesi ile bilgi eklerız
 
 
 }
